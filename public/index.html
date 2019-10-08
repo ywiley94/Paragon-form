@@ -3,7 +3,7 @@
   <head>
     <title>Chat App</title>
     <link rel="icon" href="/img/favicon.png" />
-    <link rel="stylesheet" href="/css/styles.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -15,7 +15,7 @@
     <div class="centered-form">
       <div class="centered-form__box">
         <h1>Form</h1>
-        <form class=>
+        <form id="messageForm">
           <section id="order-form" class="container">
             <div class="d-flex flex-row mb-3 align-content-between">
                 <div class="col-sm">
@@ -266,38 +266,38 @@
                     <input class="form-control" type="text" />
                 </div>
 
-                <div class="col">
+                <div id="qtyPerUnit" class="col">
                     <label for="">Qty Per Unit:</label>
                     <input class="form-control" type="text" />
                 </div>
             
                 <div class="col">
                     <label for="">No. of Units:</label>
-                    <input class="form-control" type="text" />
+                    <input id ="numberOfUnits"  class="form-control" type="text" />
                 </div>
             </div>
             
             <div class="d-flex flex-row mb-3">
                 <div class="col">
                     <label for="">Unit Cost:</label>
-                    <input class="form-control" type="text" />
+                    <input id ="unitCost" onblur = 'calculate()' class="form-control" type="text" />
                 </div>
 
                 <div class="col">
                     <label for="">Unit Sell:</label>
-                    <input class="form-control" type="text" />
+                    <input id = "unitSell" onblur = 'calculate()' onblur="overallTotal()" class="form-control" type="text" />
                 </div>
 
                 <div class="col">
                     <label for="">Total Cost:</label>
-                    <input class="form-control" type="text" />
+                    <input id="totalCost" class="form-control" type="text" />
                 </div>
             </div>
 
             <div class="d-flex flex-row mb-3">
                 <div class="col">
                     <label for="">Total Sell:</label>
-                    <input class="form-control" type="text" />
+                    <input id="totalSell" class="form-control" type="text" />
                 </div>
             </div>
           </section>
@@ -396,20 +396,20 @@
                 <tr>
                     <td>
                         <div class="col">
-                            <label for="">Charge Frieght:</label>
+                            <label for="">Charge Frieght/ Product:</label>
                             <input class="form-control" type="text" />
                         </div>
                     </td>
 
                     <td>
                         <div class="col">
-                            <input class="form-control" type="text" />
+                            <input id="overallCost" class="form-control" type="text" />
                         </div>
                     </td>
 
                     <td>
                         <div class="col">
-                            <input class="form-control" type="text" />
+                            <input id="overallSell" class="form-control" type="text" />
                         </div>
                     </td>
                 </tr>
@@ -417,19 +417,19 @@
                     <td>
                         <div class="col">
                             <label for="">Taxable:</label>
-                            <input class="form-control" type="text" />
+                            <input id="taxable" class="form-control" onblur="calculate()" type="text" />
                         </div>
                     </td>
 
                     <td>
                             <div class="col">
-                                <input class="form-control" type="text" />
+                                <input id="overallCostTax" class="form-control" type="text" />
                             </div>
                         </td>
         
                         <td>
                             <div class="col">
-                                <input class="form-control" type="text" />
+                                <input id="overallSellTax" class="form-control" type="text" />
                             </div>
                         </td>
                 </tr>
@@ -437,20 +437,20 @@
                 <tr>
                     <td>                
                         <div class="col">
-                            <label for="">Product Ship/Han:</label>
-                            <input class="form-control" type="text" />
+                            <label for="">Shipping/Han:</label>
+                            <input id ="shipAndHan" onblur="calculateShip()" class="form-control" type="text" />
                         </div>
                     </td>
 
                     <td>
                             <div class="col">
-                                <input class="form-control" type="text" />
+                                <input id="shipping"  class="form-control" type="text" />
                             </div>
                         </td>
         
                         <td>
                             <div class="col">
-                                <input class="form-control" type="text" />
+                                <input id="handling" class="form-control" type="text" />
                             </div>
                         </td>
                 </tr>
@@ -458,19 +458,19 @@
                 <tr>
                     <td>
                         <div class="col">
-                            <label for="">Tax Rate Is:</label>
-                            <input class="form-control" type="text" />
+                            <label for="">Total:</label>
+                            
                         </div>
                     </td>
                     <td>
                             <div class="col">
-                                <input class="form-control" type="text" />
+                                <input id="totalOverall" onblur="overallTotal()" class="form-control" type="text" />
                             </div>
                         </td>
         
                         <td>
                             <div class="col">
-                                <input class="form-control" type="text" />
+                                <input id="sellOverall"class="form-control" type="text" />
                             </div>
                         </td>
                 </tr>
@@ -480,11 +480,7 @@
         </table>
     </section>
 
-    <script id="item-info" type="text/html"></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script type="text/javascript" src="js/totalCost.js"></script>
+    
   </body>
 </html>
